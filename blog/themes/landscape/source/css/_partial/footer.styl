@@ -1,14 +1,27 @@
 #footer
   background: color-footer-background
-  padding: 50px 0
+  padding: 40px 0
   border-top: 1px solid color-border
   color: color-grey
+  position: relative
+  &:before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    height: 2px
+    background: linear-gradient(90deg, transparent, color-accent, color-accent-secondary, transparent)
   a
     color: color-link
     text-decoration: none
+    transition: color 0.2s
     &:hover
-      text-decoration: underline
+      color: color-accent
+      text-decoration: none
 
 #footer-info
   line-height: line-height
   font-size: 0.85em
+  text-align: center
+  letter-spacing: 0.5px

@@ -2,18 +2,15 @@
   height: banner-height
   position: relative
   border-bottom: 1px solid color-border
-  &:before, &:after
+  &:before
     content: ""
     position: absolute
     left: 0
     right: 0
-    height: 40px
-  &:before
-    top: 0
-    background: linear-gradient(rgba(0, 0, 0, 0.2), transparent)
-  &:after
     bottom: 0
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.2))
+    height: 2px
+    background: linear-gradient(90deg, transparent, color-accent, color-accent-secondary, transparent)
+    z-index: 2
 
 #header-outer
   height: 100%
@@ -29,9 +26,37 @@
   left: 0
   width: 100%
   height: 100%
-  background: url(banner-url) center #000
-  background-size: cover
+  background: linear-gradient(135deg, #0a0e17 0%, #0d1b2a 30%, #1b2838 60%, #0d1117 100%)
   z-index: -1
+  overflow: hidden
+  &:before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: radial-gradient(ellipse at 20% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(124, 58, 237, 0.08) 0%, transparent 60%)
+    z-index: 1
+  &:after
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px)
+    background-size: 30px 30px
+    z-index: 1
+
+#tech-canvas
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 0
 
 #header-title
   text-align: center
@@ -45,22 +70,28 @@ $logo-text
   text-decoration: none
   color: #fff
   font-weight: 300
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3)
 
 #logo
   @extend $logo-text
   font-size: logo-size
   line-height: logo-size
-  letter-spacing: 2px
+  letter-spacing: 4px
+  font-weight: 700
+  background: linear-gradient(135deg, #fff 0%, color-accent 50%, color-accent-secondary 100%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
 
 #subtitle
   @extend $logo-text
   font-size: subtitle-size
   line-height: subtitle-size
-  letter-spacing: 1px
+  letter-spacing: 3px
+  color: color-grey
+  font-weight: 300
 
 #subtitle-wrap
-  margin-top: subtitle-size
+  margin-top: subtitle-size + 4px
 
 #main-nav
   float: left
@@ -71,12 +102,13 @@ $nav-link
   color: #fff
   opacity: 0.6
   text-decoration: none
-  text-shadow: 0 1px rgba(0, 0, 0, 0.2)
-  transition: opacity 0.2s
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)
   display: block
   padding: 20px 15px
+  position: relative
   &:hover
     opacity: 1
+    color: color-accent
 
 .nav-icon
   @extend $nav-link
@@ -91,8 +123,21 @@ $nav-link
 
 .main-nav-link
   @extend $nav-link
-  font-weight: 300
+  font-weight: 500
   letter-spacing: 1px
+  font-size: 0.9em
+  &:after
+    content: ""
+    position: absolute
+    bottom: 14px
+    left: 15px
+    right: 15px
+    height: 2px
+    background: color-accent
+    transform: scaleX(0)
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+  &:hover:after
+    transform: scaleX(1)
   @media mq-mobile
     display: none
 
@@ -118,11 +163,11 @@ $nav-link
 #search-form-wrap
   position: absolute
   top: 15px
-  width: 150px
+  width: 200px
   height: 30px
-  right: -150px
+  right: -200px
   opacity: 0
-  transition: 0.2s ease-out
+  transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1)
   &.on
     opacity: 1
     right: 0
@@ -135,10 +180,11 @@ $nav-link
   top: 0
   left: 0
   right: 0
-  background: #fff
+  background: color-surface
   padding: 5px 15px
-  border-radius: 15px
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
+  border-radius: 20px
+  border: 1px solid color-border
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4)
 
 .search-form-input
   border: none
@@ -147,6 +193,8 @@ $nav-link
   width: 100%
   font: 13px font-sans
   outline: none
+  &::placeholder
+    color: color-grey
   &::-webkit-search-results-decoration
   &::-webkit-search-cancel-button
     -webkit-appearance: none
@@ -159,7 +207,7 @@ $nav-link
   font: 13px font-icon
   border: none
   background: none
-  color: #bbb
+  color: color-grey
   cursor: pointer
   &:hover, &:focus
-    color: #777
+    color: color-accent

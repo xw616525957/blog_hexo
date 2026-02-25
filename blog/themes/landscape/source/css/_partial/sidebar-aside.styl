@@ -7,21 +7,48 @@
 
 .widget-title
   @extend $block-caption
+  font-size: 0.75em
 
 .widget
   color: color-sidebar-text
-  text-shadow: 0 1px #fff
-  background: color-widget-background
-  box-shadow: 0 -1px 4px color-widget-border inset
-  border: 1px solid color-widget-border
-  padding: 15px
-  border-radius: 3px
+  background: color-surface
+  border: 1px solid color-border
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.2)
+  padding: 18px
+  border-radius: 12px
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+  &:hover
+    border-color: rgba(0, 212, 255, 0.15)
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3)
   a
-    color: color-link
+    color: color-default
     text-decoration: none
+    transition: color 0.2s
     &:hover
-      text-decoration: underline
+      color: color-accent
+      text-decoration: none
   ul, ol, dl
     ul, ol, dl
       margin-left: 15px
       list-style: disc
+  li
+    padding: 4px 0
+    border-bottom: 1px solid rgba(56, 68, 87, 0.3)
+    &:last-child
+      border-bottom: none
+
+.tagcloud
+  a
+    display: inline-block
+    padding: 3px 10px
+    margin: 3px
+    border-radius: 12px
+    background: rgba(56, 68, 87, 0.3)
+    border: 1px solid rgba(56, 68, 87, 0.4)
+    font-size: 0.85em !important
+    color: color-grey !important
+    transition: all 0.2s
+    &:hover
+      background: rgba(0, 212, 255, 0.1)
+      border-color: rgba(0, 212, 255, 0.3)
+      color: color-accent !important
