@@ -1,45 +1,50 @@
-// https://github.com/chriskempson/tomorrow-theme
-highlight-background = #2d2d2d
-highlight-current-line = #393939
-highlight-selection = #515151
-highlight-foreground = #cccccc
-highlight-comment = #999999
-highlight-red = #f2777a
-highlight-orange = #f99157
-highlight-yellow = #ffcc66
-highlight-green = #99cc99
-highlight-aqua = #66cccc
-highlight-blue = #6699cc
-highlight-purple = #cc99cc
+// One Dark Pro inspired
+highlight-background = #1a1e2e
+highlight-current-line = #2a2e3e
+highlight-selection = #3a3e4e
+highlight-foreground = #abb2bf
+highlight-comment = #5c6370
+highlight-red = #e06c75
+highlight-orange = #d19a66
+highlight-yellow = #e5c07b
+highlight-green = #98c379
+highlight-aqua = #56b6c2
+highlight-blue = #61afef
+highlight-purple = #c678dd
 
 $code-block
   background: highlight-background
-  margin: 0 article-padding * -1
-  padding: 15px article-padding
+  margin: 1.5em article-padding * -1
+  padding: 20px article-padding
   border-style: solid
-  border-color: color-border
+  border-color: rgba(56, 68, 87, 0.4)
   border-width: 1px 0
+  border-radius: 0
   overflow: auto
   color: highlight-foreground
-  line-height: font-size * line-height
+  line-height: font-size * 1.7
 
 $line-numbers
-  color: #666
+  color: #4a5068
   font-size: 0.85em
 
 .article-entry
   pre, code
     font-family: font-mono
+    font-size: 0.9em
   code
-    background: color-background
-    text-shadow: 0 1px #fff
-    padding: 0 0.3em
+    background: rgba(56, 68, 87, 0.35)
+    color: color-accent
+    padding: 2px 6px
+    border-radius: 4px
+    font-size: 0.88em
   pre
     @extend $code-block
     code
       background: none
-      text-shadow: none
+      color: highlight-foreground
       padding: 0
+      border-radius: 0
   .highlight
     @extend $code-block
     pre
@@ -65,13 +70,13 @@ $line-numbers
       text-align: right
       padding-right: 20px
     .line
-      height: font-size * line-height
+      height: font-size * 1.7
     .line.marked
       background: highlight-selection
   .gist
     margin: 0 article-padding * -1
     border-style: solid
-    border-color: color-border
+    border-color: rgba(56, 68, 87, 0.4)
     border-width: 1px 0
     background: highlight-background
     padding: 15px article-padding 15px 0

@@ -22,36 +22,42 @@
 
 .archive-article-inner
   @extend $block
-  padding: 10px
+  padding: 14px 16px
   margin-bottom: 15px
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1)
+  &:hover
+    border-color: rgba(0, 212, 255, 0.2)
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3)
 
 .archive-article-title
   text-decoration: none
-  font-weight: bold
+  font-weight: 600
   color: color-default
   transition: color 0.2s
   line-height: line-height
   &:hover
-    color: color-link
+    color: color-accent
 
 .archive-article-footer
-  margin-top: 1em
+  margin-top: 0.8em
 
 .archive-article-date
   color: color-grey
   text-decoration: none
-  font-size: 0.85em
+  font-size: 0.8em
   line-height: 1em
   margin-bottom: 0.5em
   display: block
+  font-family: font-mono
+  letter-spacing: 0.5px
 
 #page-nav
   clearfix()
   margin: block-margin auto
-  background: #fff
-  box-shadow: 1px 2px 3px #ddd
+  background: color-surface
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3)
   border: 1px solid color-border
-  border-radius: 3px
+  border-radius: 12px
   text-align: center
   color: color-grey
   overflow: hidden
@@ -62,9 +68,10 @@
   a
     color: color-grey
     text-decoration: none
+    transition: all 0.2s
     &:hover
-      background: color-grey
-      color: #fff
+      background: rgba(0, 212, 255, 0.1)
+      color: color-accent
   .prev
     float: left
   .next
@@ -74,7 +81,7 @@
     @media mq-mobile
       display: none
   .current
-    color: color-default
+    color: color-accent
     font-weight: bold
   .space
     color: color-border
